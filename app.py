@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request 
+from flask import Flask, render_template, request, redirect, url_for
 
 # . -> current dir
 # .. -> parent dir
@@ -17,8 +17,26 @@ def login():
         username = request.form ["username"]
         passcode = request.form ["password"]
         if username == "root" and passcode == "groot":
-            return "Login sucessful!"
+            
+            print("url_for('hello_world'):{}".format(url_for('hello_world')))
+            print("url_for('login'):{}".format(url_for('login')))
+            print("url_for('register'):{}".format(url_for('register')))
 
+            hello_world_endpoint = url_for('hello_world')
+            return redirect(hello_world_endpoint)
+
+            # redirect:
+            # it takes an endpoint as input
+            # redirects user to that endpoint
+
+            # url_for: 
+            # takes a function name as input
+            # returns an endpoint
+        else:
+            return "Invalid username or password. Can't login."
+            # TODO: 
+            # send a msg: Invalid username or password. Can't login.
+            # he should still be in login page
     # username: root
     # password: groot
 
