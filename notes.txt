@@ -1,0 +1,9 @@
+render_template: rendering an HTML page to the user
+route: defining a new endpoint
+
+reading user input from request:
+    request.form -> form requests
+    request.args -> url params
+
+redirect
+url_for
